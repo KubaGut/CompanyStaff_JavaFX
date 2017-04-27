@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainManuController">
+   <bottom>
+      <HBox alignment="CENTER_RIGHT" prefHeight="44.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button contentDisplay="RIGHT" lineSpacing="10.0" mnemonicParsing="false" onAction="#add" text="Add">
+               <opaqueInsets>
+                  <Insets right="10.0" />
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button contentDisplay="RIGHT" lineSpacing="10.0" mnemonicParsing="false" onAction="#edit" text="Edit">
+               <opaqueInsets>
+                  <Insets right="10.0" />
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button contentDisplay="RIGHT" lineSpacing="10.0" mnemonicParsing="false" onAction="#delete" text="Delete">
+               <opaqueInsets>
+                  <Insets right="10.0" />
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+         <opaqueInsets>
+            <Insets right="10.0" />
+         </opaqueInsets>
+      </HBox>
+   </bottom>
+   <left>
+      <TableView fx:id="table" prefWidth="200.0">
+        <columns>
+          <TableColumn fx:id="tableColumnName" prefWidth="95.0" text="Name" />
+          <TableColumn fx:id="tableColumnLastName" prefWidth="104.0" text="Last Name" />
+        </columns>
+      </TableView>
+   </left>
+   <top>
+      <HBox prefHeight="52.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+   </top>
+   <center>
+      <GridPane prefHeight="302.0" prefWidth="165.0" BorderPane.alignment="TOP_LEFT">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="184.0" minWidth="10.0" prefWidth="109.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="246.0" minWidth="9.0" prefWidth="104.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Name" />
+            <Label text="Last Name" GridPane.rowIndex="1" />
+            <Label text="Gender" GridPane.rowIndex="2" />
+            <Label text="Department" GridPane.rowIndex="3" />
+            <Label text="Salary" GridPane.rowIndex="4" />
+            <Label text="Age" GridPane.rowIndex="5" />
+            <Label text="Number of Children" GridPane.rowIndex="6" />
+            <Label text="Martial Status" GridPane.rowIndex="7" />
+            <Label fx:id="labelName" GridPane.columnIndex="1" />
+            <Label fx:id="labelLastName" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label fx:id="labelGender" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="labelDepartment" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label fx:id="labelSalary" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label fx:id="labelAge" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label fx:id="labelChildren" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Label fx:id="labelMarital" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+         </children>
+         <BorderPane.margin>
+            <Insets left="20.0" right="10.0" />
+         </BorderPane.margin>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </GridPane>
+   </center>
+   <right>
+      <GridPane prefHeight="304.0" prefWidth="157.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Company" GridPane.rowIndex="1" />
+            <Label text="Production" GridPane.rowIndex="2" />
+            <Label text="Quality" GridPane.rowIndex="3" />
+            <Label text="Office" GridPane.rowIndex="4" />
+            <Label fx:id="labelAvgSalary" prefHeight="17.0" prefWidth="39.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label fx:id="labelAvgProductionSalary" prefHeight="17.0" prefWidth="50.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="labelAvgQualitySalary" prefHeight="17.0" prefWidth="39.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label fx:id="labelAvgOfficeSalary" prefHeight="17.0" prefWidth="32.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Button mnemonicParsing="false" onAction="#setSalaryLabels" text="Avg Salary" GridPane.columnIndex="1" />
+            <Button mnemonicParsing="false" onAction="#setMaxLabel" text="Max Salary" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label text="Man" GridPane.rowIndex="6" />
+            <Label text="Woman" GridPane.rowIndex="7" />
+            <Label fx:id="labelManMaxSalary" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Label fx:id="labelWomanMaxSalary" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <Label text="Employee M/W" GridPane.rowIndex="9">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelRatio" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#setRatioLabel" text="Ratio" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="8">
+               <GridPane.margin>
+                  <Insets left="15.0" />
+               </GridPane.margin>
+            </Button>
+         </children>
+      </GridPane>
+   </right>
+</BorderPane>
