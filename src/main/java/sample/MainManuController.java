@@ -11,9 +11,15 @@ import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.Collection;
 import java.util.Comparator;
 
 import sample.Main;
+import sample.dataBase.HTML;
+import sample.dataBase.JDBC;
+import sample.dataBase.JSON;
+import sample.dataBase.TextFile;
 
 public class MainManuController {
 
@@ -63,8 +69,42 @@ public class MainManuController {
         tableColumnName.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
 
         table.getSelectionModel().selectedItemProperty().addListener((observable,x,y) -> showEmployeeDetails(y));
-
     }
+    @FXML
+    private void exportToJSON() throws SQLException, ClassNotFoundException, IOException {
+        JSON json = new JSON();
+        json.setMain(main.getMain());
+        json.exportToJson();
+    }
+
+
+    @FXML
+    private void exportToHTML() throws SQLException, ClassNotFoundException, IOException {
+        HTML html = new HTML();
+        html.setMain(main.getMain());
+        html.exportToHTML();
+    }
+
+    @FXML
+    private void exportToFile() throws SQLException, ClassNotFoundException, IOException {
+        main.showEncryptLastName();
+    }
+
+    @FXML
+    private void saveToJDBC() throws SQLException, ClassNotFoundException {
+        JDBC jdbc = new JDBC();
+        jdbc.getInstance();
+        jdbc.setMain(main.getMain());
+        jdbc.getData();
+    }
+    @FXML
+    private void openFromJDBC() throws SQLException, ClassNotFoundException {
+        JDBC jdbc = new JDBC();
+        jdbc.getInstance();
+        jdbc.setMain(main.getMain());
+        jdbc.open();
+    }
+
     @FXML
     private void edit() throws IOException {
         int index = main.getList().indexOf(table.getSelectionModel().selectedItemProperty().getValue());
@@ -116,10 +156,10 @@ public class MainManuController {
     }
 
     public void setSalaryLabels(){
-        labelAvgSalary.setText(String.valueOf(avarageSalary()));
-        labelAvgProductionSalary.setText(String.valueOf(avarageProductionSalary()));
-        labelAvgQualitySalary.setText(String.valueOf(avarageQualitySalary()));
-        labelAvgOfficeSalary.setText(String.valueOf(avarageOfficeSalary()));
+        labelAvgSalary.setText(String.valueOf(Math.round(avarageSalary())));
+        labelAvgProductionSalary.setText(String.valueOf(Math.round(avarageProductionSalary())));
+        labelAvgQualitySalary.setText(String.valueOf(Math.round(avarageQualitySalary())));
+        labelAvgOfficeSalary.setText(String.valueOf(Math.round(avarageOfficeSalary())));
 
     }
     public float avarageSalary(){
@@ -159,6 +199,16 @@ public class MainManuController {
             n++;
         }
         return (suma / n);
+    }
+    public void sotyBySalary(){
+        Comparator<Employee> bySalary = (e1, e2) -> Float.compare(e1.getSalary(), e2.getSalary());
+        main.getList().sort(bySalary);
+    }
+    public void longestLastName() throws IOException {
+        main.showLongestLastName();
+    }
+    public void avgParentSalary() throws IOException {
+        main.showAvgParentSalary();
     }
 
 }

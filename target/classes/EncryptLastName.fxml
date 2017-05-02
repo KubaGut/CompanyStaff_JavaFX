@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="150.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.EncryptLastNameController">
+   <children>
+      <VBox prefHeight="80.0" prefWidth="150.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="50.0" prefWidth="149.0" text="Do you want to encrypt Employees Last Name ?" textAlignment="CENTER" wrapText="true" />
+            <HBox alignment="CENTER" prefHeight="45.0" prefWidth="150.0" spacing="15.0">
+               <children>
+                  <Button fx:id="yesButton" lineSpacing="10.0" mnemonicParsing="false" onAction="#yes" text="Yes" />
+                  <Button fx:id="noButton" lineSpacing="10.0" mnemonicParsing="false" onAction="#no" text="No" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</Pane>

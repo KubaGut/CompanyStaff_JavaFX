@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -35,7 +36,7 @@ public class Main extends Application {
     @FXML
     public void showEditStage(int index) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(Main.class.getResource("EditEmployee.fxml"));
+        loader.setLocation(getClass().getClassLoader().getResource("EditEmployee.fxml"));
         BorderPane editEmployee =  loader.load();
         Stage editDialogStage = new Stage();
         editDialogStage.setTitle("Edit Employee");
@@ -58,7 +59,7 @@ public class Main extends Application {
     @FXML
     public void showAddStage() throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(Main.class.getResource("AddNewEmployee.fxml"));
+        loader.setLocation(getClass().getClassLoader().getResource("AddNewEmployee.fxml"));
         BorderPane addNewEmployee =  loader.load();
         Stage addDialogStage = new Stage();
         addDialogStage.setTitle("Add mew Employee");
@@ -74,10 +75,65 @@ public class Main extends Application {
         addDialogStage.showAndWait();
 
     }
+
+    @FXML
+    public void showAvgParentSalary() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getClassLoader().getResource("AvgParentSalary.fxml"));
+        Pane longestLastName=  loader.load();
+        Stage avgParentSalary = new Stage();
+
+        avgParentSalary.initModality(Modality.WINDOW_MODAL);
+        avgParentSalary.initOwner(primaryStage);
+
+        Scene scene = new Scene (longestLastName);
+        avgParentSalary.setScene(scene);
+        AvarageParentSalaryController controller = loader.getController();
+        controller.setMain(this);
+        controller.setLabelAavgParentSalary();
+
+        avgParentSalary.showAndWait();
+    }
+    @FXML
+    public void showEncryptLastName() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getClassLoader().getResource("EncryptLastName.fxml"));
+        Pane crypt =  loader.load();
+        Stage addEncryptLastName = new Stage();
+
+        addEncryptLastName.initModality(Modality.WINDOW_MODAL);
+        addEncryptLastName.initOwner(primaryStage);
+
+        Scene scene = new Scene (crypt);
+        addEncryptLastName.setScene(scene);
+        EncryptLastNameController controller = loader.getController();
+        controller.setMain(this);
+
+        addEncryptLastName.showAndWait();
+    }
+    @FXML
+    public void showLongestLastName() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getClassLoader().getResource("LongestLastName.fxml"));
+        Pane longestLastName=  loader.load();
+        Stage addLongestLastName = new Stage();
+
+        addLongestLastName.initModality(Modality.WINDOW_MODAL);
+        addLongestLastName.initOwner(primaryStage);
+
+        Scene scene = new Scene (longestLastName);
+        addLongestLastName.setScene(scene);
+        LongestLastNameController controller = loader.getController();
+        controller.setMain(this);
+        controller.longestLastName();
+
+
+        addLongestLastName.showAndWait();
+    }
     @FXML
     public void initMainMenu() throws IOException {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("MainManu.fxml"));
+            loader.setLocation(getClass().getClassLoader().getResource("MainManu.fxml"));
             BorderPane mainMenu =  loader.load();
 
             rootLayout.setCenter(mainMenu);
@@ -87,9 +143,9 @@ public class Main extends Application {
 
     }
     @FXML
-    public static void initRootLayout() throws IOException {
+    public void initRootLayout() throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(Main.class.getResource("RootLayout.fxml"));
+        loader.setLocation(getClass().getClassLoader().getResource("RootLayout.fxml"));
         rootLayout = loader.load();
 
         Scene ramka = new Scene(rootLayout);
@@ -99,6 +155,10 @@ public class Main extends Application {
 
     public ObservableList<Employee> getList() {
         return list;
+    }
+
+    public Main getMain(){
+        return this;
     }
 
     public static void main(String[] args) {

@@ -84,7 +84,6 @@ public class AddNewEmploeeController {
         Employee employee = new Employee(new Employee.Builder(nameFIeld.getText(), lastNameFIeld.getText(), gender,
                 departmentChoiceBox.getValue().toString(),parseFloat(salaryFIeld.getText()), parseInt(ageField.getText()))
                 .childNumber(children).marital(married));
-        //System.out.println(employee.toString());
         main.getList().add(employee);
         Stage stage = (Stage) okButton.getScene().getWindow();
         stage.close();

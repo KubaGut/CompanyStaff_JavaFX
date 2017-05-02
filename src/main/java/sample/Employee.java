@@ -105,6 +105,7 @@ public class Employee implements Serializable {
         return marital;
     }
 
+
     public static final class Builder {
         private StringProperty name;
         private StringProperty lastName;
