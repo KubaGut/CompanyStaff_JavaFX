@@ -108,7 +108,6 @@ public class MainManuController {
     @FXML
     private void edit() throws IOException {
         int index = main.getList().indexOf(table.getSelectionModel().selectedItemProperty().getValue());
-        System.out.println(index);
         main.showEditStage(index);
     }
     @FXML
@@ -139,6 +138,10 @@ public class MainManuController {
     @FXML
     private void add() throws IOException {
         main.showAddStage();
+    }
+    @FXML
+    private void bossSection() throws IOException {
+        main.showBossSection();
     }
     public void setMain (Main main){
         this.main = main;

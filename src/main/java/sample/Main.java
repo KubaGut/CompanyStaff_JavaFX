@@ -25,13 +25,29 @@ public class Main extends Application {
     }
     @Override
     public void start(Stage primaryStage) throws Exception{
-
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("Company Staff");
 
         initRootLayout();
         initMainMenu();
+    }
 
+    @FXML
+    public void showBossSection() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getClassLoader().getResource("SectionForBoss.fxml"));
+        BorderPane sectionForBoss =  loader.load();
+        Stage showBossSection = new Stage();
+
+        showBossSection.initModality(Modality.WINDOW_MODAL);
+        showBossSection.initOwner(primaryStage);
+
+        Scene scene = new Scene (sectionForBoss);
+        showBossSection.setScene(scene);
+        SectionForBossController controller = loader.getController();
+        controller.setMain(this);
+
+        showBossSection.showAndWait();
     }
     @FXML
     public void showEditStage(int index) throws IOException {
@@ -51,9 +67,7 @@ public class Main extends Application {
         controller2.setIndex(index);
         controller2.setFields();
 
-
         editDialogStage.showAndWait();
-
     }
 
     @FXML
@@ -62,7 +76,7 @@ public class Main extends Application {
         loader.setLocation(getClass().getClassLoader().getResource("AddNewEmployee.fxml"));
         BorderPane addNewEmployee =  loader.load();
         Stage addDialogStage = new Stage();
-        addDialogStage.setTitle("Add mew Employee");
+        addDialogStage.setTitle("Add new Employee");
         addDialogStage.initModality(Modality.WINDOW_MODAL);
         addDialogStage.initOwner(primaryStage);
 
@@ -71,9 +85,7 @@ public class Main extends Application {
         AddNewEmploeeController controller = loader.getController();
         controller.setMain(this);
 
-
         addDialogStage.showAndWait();
-
     }
 
     @FXML
@@ -127,7 +139,6 @@ public class Main extends Application {
         controller.setMain(this);
         controller.longestLastName();
 
-
         addLongestLastName.showAndWait();
     }
     @FXML
@@ -140,7 +151,6 @@ public class Main extends Application {
 
            MainManuController controller = loader.getController();
            controller.setMain(this);
-
     }
     @FXML
     public void initRootLayout() throws IOException {

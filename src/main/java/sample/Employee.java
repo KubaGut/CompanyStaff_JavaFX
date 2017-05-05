@@ -41,6 +41,10 @@ public class Employee implements Serializable {
                 '}';
     }
 
+    public void setSalary(float salary) {
+        this.salary.set(salary);
+    }
+
     public String getName() {
         return name.get();
     }
@@ -104,6 +108,7 @@ public class Employee implements Serializable {
     public StringProperty maritalProperty() {
         return marital;
     }
+
 
 
     public static final class Builder {
